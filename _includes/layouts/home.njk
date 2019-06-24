@@ -3,4 +3,152 @@ layout: layouts/base.njk
 section: home
 ---
 
-{{ layoutContent | safe }}
+<section class="header__container">
+    <header class="header__flexcontainer">
+      <img src="https://user-images.githubusercontent.com/19469896/60050497-ba725400-970b-11e9-9890-4fb194b2f372.png">
+      <nav class="header__flexitem">
+        <ul class="header__nav--flexcontainer">
+          <li class="header__nav--flexitem"><a class="header__nav--flexitem--link" href="#about">本学会について</a></li>
+          <li class="header__nav--flexitem"><a class="header__nav--flexitem--link" href="#desc">概要</a></li>
+          <li class="header__nav--flexitem"><a class="header__nav--flexitem--link" href="#docs">資料</a></li>
+          <li class="header__nav--flexitem"><a class="header__nav--flexitem--link" href="mailto:nihoncymrugakkai@gmail.com">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="blog__outline">
+      <h1 class="blog__outline--header">ニュース</h1>
+      <ul class="blog__outline--list">
+        {% set postslist = collections.posts %}
+        {% for post in postslist | reverse %}
+            <li{% if post.url == url %} data-current="current item"{% endif %}>
+                <time datetime="{{ post.date | machineDate }}">
+                    <small>{{ post.date | readableDate }} | </small>
+                </time>
+                <a href="{{ post.url | url }}" class="blog__link--white">
+                    {% if post.data.title %}
+                        {{ post.data.title }}
+                    {% else %}
+                        Untitled
+                    {% endif %}
+                </a>
+            </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+  <div class="contents-container">
+    <section>
+      <h1 id="about">日本カムリ学会とは</h1>
+      <p>
+        　日本カムリ学会は2005年1月29日の設立記念集会（於　金城学院大学文学部大会議室）において設立されました。当初は「日本カムライグ学会」という名称で始まりましたが、2009年12月に「日本カムリ学会」と改めました。さらに2015年12月以降、本学会名に副題がつけられ、「日本カムリ学会（日本ウェールズ学会）」という名称になり、今日に至っています。
+      </p>
+      <br>
+      <p>
+        　英国を構成する４つの国の一つ「ウェールズ」は、現地語である「ウェールズ語」では「カムリ」（Cymru）と呼びます。本学会の名称「日本カムリ学会」は、「カムリ」すなわち「ウェールズ」を研究対象とする学術団体です。カムリの国の言語・歴史・文学・社会・文化等、様々な側面について学術研究を行い、また啓蒙活動を行うことが本学会の目的です。
+      </p>
+      <br>
+      <p>
+        　本学会の創立者である水谷宏氏（現在本学会名誉会員）は設立記念講演において、「カムリ学」（当時の呼称では「カムライグ学」）という分野を打ち立てました。上記の通り、「カムリ学」とはカムリの国を対象とする研究分野です。今日の日本では、「カムリ学」という名称はおろか、英語名の「ウェールズ学」ですら日本語としては全く市民権を得ていません。しかし、この国の文化、歴史、文学、言語、経済など様々な側面を研究対象または関心対象とする方々は、国内に多数おられます。こういった方々の一つ一つのカムリ理解を落ち葉拾いのように集め、日本国内におけるカムリ学という研究分野を構築していくことが、本学会の目的です。
+      </p>
+      <br>
+      <p>
+        　当然現地カムリおよび英国、さらには西洋において、「カムリ学」はAstudiaethau Cymreig／Welsh Studiesというカムリ語または英語の名称と共に、一定の認知度を得て研究分野として確立していており、日々その研究は発展しています。日本におけるカムリ学は現在のところ、現地におけるカムリ学研究の調査とその紹介といった基礎研究が中心的作業となっています。カムリ学の基礎研究を進める上で、本学会のモットーとしていることが、研究成果の社会への還元です。そのために、平易な日本語によってカムリ学を紹介することを心がけております。カムリという国について、例えカムリ語や英語が一言も分からずとも、直接日本語でその本質が理解できるような学会を目指しています。真の意味で開かれた学会を目指しています。
+        <br>
+        <br>                                                                                                     日本カムリ学会代表幹事　小池剛史
+      </p>
+    </section>
+  </div>
+  <div class="contents-container">
+    <section>
+      <h1 id="desc">カムリ（ウェールズ）の概要</h1>
+      <div class="devide">
+        <div class="left">
+          <p>
+            　ウェールズは、英国の南西部に位置し、その面積は約2万㎢（ちょうど四国と東京を合わせた位）、その中に約300万人の人口を抱えています。山岳地帯が多く、南北をカンブリア山脈が走ります。この険しい山々がウェールズ独自の文化を守ったとも言われています。
+          </p><br>
+          <p>
+            　現在ウェールズの公用語となっているウェールズ語で、ウェールズのことを「カムリ」（Cymru）と呼びます。カムリは、その長い歴史の中で、独自の言語、文化、文学を次世代に伝えてきました。ただ単に伝統を守り続けるだけでなく、その時代時代の文脈の中で伝統を活かすことにより、新たな文化が常に創造され続けています。
+          </p>
+        </div>
+        <div class="right">
+          <img src="https://user-images.githubusercontent.com/19469896/60050508-bf370800-970b-11e9-99e0-46b39bf5c16e.png" alt="ウェールズの場所を示した地図です">
+        </div>
+      </p>
+      </div>
+    </section>
+  </div>
+  <div class="contents-container">
+    <section>
+      <h1 id="docs">各種資料</h1>
+      <div class="folders">
+        <div class="folders__folder">
+          <a class="folders__folder--link" href="https://drive.google.com/drive/folders/1qjVcvZHWRK6UNLRcIj1v8xHevV6QIOOe?usp=sharing" target="_blank">
+            <i class="far fa-folder fa-2x"></i>
+            カムリの地名のカタカナ表記
+          </a>
+        </div>
+        <div class="folders__folder">
+          <a class="folders__folder--link" href="https://drive.google.com/drive/folders/1JdTn3VmSJcHJ3e0nhLDcI6fWmvWuH7Ci?usp=sharing" target="_blank">
+            <i class="far fa-folder fa-2x"></i>
+            寄稿・紀行・聴こう
+          </a>
+        </div>
+        <div class="folders__folder">
+          <a class="folders__folder--link" href="https://drive.google.com/drive/folders/1CI8eI-uyWP939GIloZHUzfgXw0O_znX-?usp=sharing" target="_blank">
+            <i class="far fa-folder fa-2x"></i>
+            研究ノート
+          </a>
+        </div>
+        <div class="folders__folder">
+          <a class="folders__folder--link" href="https://drive.google.com/drive/folders/1k3dFGKZL2YVv2t_i60YSlKV7wLyq5zJF?usp=sharing" target="_blank">
+            <i class="far fa-folder fa-2x"></i>
+            研究紹介
+          </a>
+        </div>
+        <div class="folders__folder">
+          <a class="folders__folder--link" href="https://drive.google.com/drive/folders/1GZsfgwte2aTbYzvwoolakOxsnPJkP9qJ?usp=sharing" target="_blank">
+            <i class="far fa-folder fa-2x"></i>
+            投稿論文
+          </a>
+        </div>
+        <div class="folders__folder">
+          <a class="folders__folder--link" href="https://drive.google.com/drive/folders/1aG8QmLLOSUwI7QPIfHWmAC5K-K7LzS6i?usp=sharing" target="_blank">
+            <i class="far fa-folder fa-2x"></i>
+            報告要旨
+          </a>
+        </div>
+      </div>
+      <div class="images">
+        <img src="https://user-images.githubusercontent.com/19469896/60050517-c2ca8f00-970b-11e9-8d0e-ef30df012960.jpg" width="425" height="300" alt="ウェールズの風景画像です。">
+        <img src="https://user-images.githubusercontent.com/19469896/60050520-c3fbbc00-970b-11e9-84e1-c6bc81aa0f29.jpg" width="425" height="300" alt="ウェールズの風景画像です。">
+        <img src="https://user-images.githubusercontent.com/19469896/60050526-c65e1600-970b-11e9-9969-c04eec187af9.jpg" width="425" height="300" alt="ウェールズの風景画像です。">
+        <img src="https://user-images.githubusercontent.com/19469896/60050528-c78f4300-970b-11e9-9acc-c614f75c645a.jpg" width="425" height="300" alt="ウェールズの風景画像です。">
+        <img src="https://user-images.githubusercontent.com/19469896/60050530-c9590680-970b-11e9-9aae-a7e4bf00caba.jpg" width="425" height="300" alt="ウェールズの風景画像です。">
+        <img src="https://user-images.githubusercontent.com/19469896/60050531-ca8a3380-970b-11e9-9360-f86e66e07104.jpg" width="425" height="300" alt="ウェールズの風景画像です。">
+        <img src="https://user-images.githubusercontent.com/19469896/60055344-4a1dff80-9718-11e9-95d3-d68ed7007615.jpg" width="425" height="300" alt="ウェールズの風景画像です。">
+        <img src="https://user-images.githubusercontent.com/19469896/60055353-4f7b4a00-9718-11e9-986e-f1e543b0ce8f.jpg" width="425" height="300" alt="ウェールズの風景画像です。">
+        <img src="https://user-images.githubusercontent.com/19469896/60055356-52763a80-9718-11e9-9669-2bb10e4294f2.jpg" width="425" height="300" alt="ウェールズの風景画像です。">
+        <img src="https://user-images.githubusercontent.com/19469896/60055361-54d89480-9718-11e9-8c48-189e174b064a.jpg" width="425" height="300" alt="ウェールズの風景画像です。">
+        <img src="https://user-images.githubusercontent.com/19469896/60055365-5ace7580-9718-11e9-9984-db691d12c352.jpg" width="425" height="300" alt="ウェールズの風景画像です。">
+        <img src="https://user-images.githubusercontent.com/19469896/60055371-5dc96600-9718-11e9-8f63-de8f18e14d9c.jpg" width="425" height="300" alt="ウェールズの風景画像です。">
+      </div>
+    </section>
+  </div>
+  <div class="contents-container">
+    <section>
+      <div class="mail">
+        <a href="mailto:nihoncymrugakkai@gmail.com">メールで問い合わせる</a>
+      </div>
+    </section>
+  </div>
+  <footer>
+  <address>
+    <p>
+        〒175-8571<br>
+        東京都板橋区高島平1-9-1<br>
+        大東文化大学文学部英米文学科<br>
+        小池剛史研修室付
+    </p>
+  </address>
+    <small>Copyright © 2019 nihon-cymru-wales-gakkai.com. All Rights Reserved.</small>
+  </footer>

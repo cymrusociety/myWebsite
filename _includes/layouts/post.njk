@@ -3,29 +3,29 @@ layout: layouts/base.njk
 section: post
 ---
 
-<article>
-  <h1>{{ title }}</h1>
-  <p>
-    <small>
-      <time datetime="{{ date | machineDate }}">{{ date | readableDate }}</time> by {{ metadata.author.name }}
-    </small>
-  </p>
+<section>
+    <header class="header__flexcontainer--blog">
+      <img src="https://user-images.githubusercontent.com/19469896/60050497-ba725400-970b-11e9-9890-4fb194b2f372.png">
+      <nav class="header__flexitem">
+        <ul class="header__nav--flexcontainer">
+          <li class="header__nav--flexitem"><a class="header__nav--flexitem--link blog__link--black" href="{{ '/' | url }}">TOPに戻る</a></li>
+        </ul>
+      </nav>
+    </header>
+  </section>
 
-  {{ layoutContent | safe }}
-
-  {% if tags %}
-    <p>
-    {% for tag in tags %}
-      {%- if tag != "post" -%}
-        {% set tagUrl %}/tags/{{ tag }}/{% endset %}
-        <a href="{{ tagUrl | url }}" rel="tag">{{ tag }}</a>
-      {%- endif -%}
-    {% endfor %}
+<div class="contents-container">
+  <article>
+    <h1 class="post-margin">{{ title }}</h1>
+    <p style="
+      margin: 8px 0;
+      color: gray;
+    ">
+      <small>
+        <time datetime="{{ date | machineDate }}">{{ date | readableDate }}</time>
+      </small>
     </p>
-  {% endif %}
+    {{ layoutContent | safe }}
+  </article>
+</div>
 
-</article>
-
-<nav>
-  <a href="{{ '/blog/' | url }}">← Blog index</a>
-</nav>
